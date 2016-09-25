@@ -1,0 +1,179 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Template
+%   Golbal Settings
+%
+% Author:
+%   MengHuan Yu     cebrusfs@gmail.com
+%                                                            2014 / 09 / 28
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\linespread{1.1} % 行距
+
+% ------------------------------------------------------------------------------
+%    數學
+% ------------------------------------------------------------------------------
+\usepackage{mathtools}
+\usepackage{amssymb, amsthm}
+
+\DeclareMathOperator*{\Span}{span}        % span symbol
+\DeclareMathOperator*{\Tr}{tr}            % trace symbol
+\DeclareMathOperator*{\sign}{sign}        % sign symbol
+
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+\DeclareMathOperator{\E}{\mathrm{E}}
+\DeclareMathOperator{\Var}{\mathrm{Var}}
+\DeclareMathOperator{\Cov}{\mathrm{Cov}}
+
+\DeclareMathOperator*{\argmin}{arg\,min }
+\DeclareMathOperator*{\argmax}{arg\,max }
+
+% ------------------------------------------------------------------------------
+%    程式碼
+% ------------------------------------------------------------------------------
+\usepackage[usenames, dvipsnames]{xcolor} % Required for custom colors
+\usepackage{listings}
+
+\definecolor{commentgreen}{HTML}{009900}
+\lstset{%
+    language        = {c++},
+    % Font Setting
+    basicstyle      = {\linespread{1.1}\ttfamily\small},
+    identifierstyle = {\color{black}},
+    commentstyle    = {\usefont{T1}{pcr}{b}{sl}\color{commentgreen}},
+    keywordstyle    = {\color{blue}},
+    stringstyle     = {\color{purple}},
+    directivestyle  = {\color{brown}},
+    % Single frame around code
+    %frame           = {single},
+    % Align Setting
+    xleftmargin     = {2em},
+    xrightmargin    = {2em},
+    % Line number Setting
+    numberstyle     = {\tiny}, % Line numbers are blue and small
+    numbers         = {left}, % Line numbers on left
+    firstnumber     = {1}, % Line numbers start with line 1
+    stepnumber      = {1}, % Line numbers go in steps of 1
+    % Auto break line if code is too long
+    breaklines      = {true},
+    breakautoindent = {true},
+    % Other
+    showstringspaces= {false}, % Don't put marks in string spaces
+    tabsize         = {4}, % 4 spaces per tab
+    escapeinside    = {{/*}{*/}}, % can use for Chinese
+    extendedchars   = {false},
+    morecomment     = {[l][]{...}}, % Line continuation (...) is comment
+}
+
+% usage: \insertcode{language}{code path}{label}
+%   ex. \insertcode{C++}{hw2_3_3.cpp}{Algorithm of 2-3}
+\newcommand{\insertcode}[3]
+{%
+    \begin{itemize}
+        \item[]\lstinputlisting[language=#1,caption=#3,label=#2]{#2}
+    \end{itemize}
+}
+
+
+% ------------------------------------------------------------------------------
+%    圖片
+% ------------------------------------------------------------------------------
+\usepackage{subfigure}
+\usepackage{graphicx}
+
+%includegraphics[height=高度, width=寬度, angle=旋轉角, scale=縮放倍數]%{檔名}
+
+
+% ------------------------------------------------------------------------------
+%    xeCJK
+% ------------------------------------------------------------------------------
+\setlength{\parindent}{2em} % indent size for chinese
+\usepackage{indentfirst} % 中文第一段縮排套件
+\usepackage[no-math]{fontspec}
+\usepackage[SlantFont]{xeCJK}
+
+\newcommand{\FontPath}{./font/}
+
+\XeTeXinputencoding "utf8"
+\XeTeXdefaultencoding "utf8"
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+\setmainfont[
+    Mapping = tex-text,
+    Path = \FontPath,
+    UprightFont = *-Regular,
+    BoldFont = *-Bold,
+    BoldItalicFont = *-BoldItalic,
+    ItalicFont = *-Italic,
+]{NotoSerif}
+
+\setsansfont[
+    Mapping = tex-text,
+    Path = \FontPath,
+    UprightFont = *-Regular,
+    BoldFont = *-Bold,
+    BoldItalicFont = *-BoldItalic,
+    ItalicFont = *-Italic,
+]{NotoSans}
+
+\setmonofont[
+    Scale = 0.96,
+    Path = \FontPath,
+    UprightFont = *,
+    BoldFont = *-Bold,
+    BoldItalicFont = *-BoldItalic,
+    ItalicFont = *-Italic,
+]{Inconsolata-LGC}
+
+\setCJKmainfont[
+    Mapping = tex-text,
+    Path = \FontPath,
+    UprightFont = *-Regular,
+    BoldFont = *-Bold,
+]{NotoSansCJKtc}
+
+\setCJKsansfont[
+    Mapping = tex-text,
+    Path = \FontPath,
+    UprightFont = *-Regular,
+    BoldFont = *-Bold,
+]{NotoSansCJKtc}
+
+\setCJKmonofont[
+    Mapping = tex-text,
+    Path = \FontPath,
+    UprightFont = *-Regular,
+    BoldFont = *-Bold,
+]{NotoSansCJKtc}
+
+%\renewcommand\rmdefault{lmr}
+%\renewcommand\sfdefault{lmss}
+%\renewcommand\ttdefault{lmtt}
+
+% ------------------------------------------------------------------------------
+%    繪圖
+% ------------------------------------------------------------------------------
+\usepackage{tikz}
+
+
+% ------------------------------------------------------------------------------
+%    雜七雜八
+% ------------------------------------------------------------------------------
+\usepackage[shortlabels]{enumitem}
+\usepackage{multicol}        %多欄位
+\usepackage{comment}         %latex註解插件
+
+% ------------------------------------------------------------------------------
+%    header/footer
+% ------------------------------------------------------------------------------
+\usepackage{fancyhdr}
+\usepackage{lastpage}        %讀取總頁數
+
+
+% ------------------------------------------------------------------------------
+%    End of Header
+% ------------------------------------------------------------------------------

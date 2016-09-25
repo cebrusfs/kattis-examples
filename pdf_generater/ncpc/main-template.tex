@@ -1,0 +1,55 @@
+\documentclass[12pt, a4paper]{problemset}
+
+\input{./ncpc/deps.tex}
+
+
+%% NCPC settings
+\setlength{\doublerulesep}{\arrayrulewidth}
+\setlength{\headheight}{15pt}
+\setlength{\parskip}{2ex}
+\setcounter{secnumdepth}{0}
+%%\DeclareRobustCommand{\nobreakspace}{\leavevmode\nobreak\ }
+
+\pagestyle{fancy}
+\lhead{\small{National Taiwan University}}
+\chead{}
+\rhead{\small{全國大專電腦軟體設計競賽 --- 台大校內初賽}}
+\lfoot{}
+\rfoot{}
+\cfoot{\thepage}
+
+\let\olditem\item
+\renewcommand{\item}{\itemsep1pt\parskip0pt\parsep0pt\olditem}
+
+\begin{document}
+
+\title{\Huge{\textsf{\bf %(ncpc_tw_year)s學年度\\全國大專電腦軟體設計競賽\\台大校內初賽}}}
+\date{%(ncpc_date)s}
+\author{National Taiwan University}
+\maketitle
+
+\vspace*{16ex}
+
+\begin{table}[h!b!p!]
+\begin{center}
+\caption{Compilation Information}\vspace*{3pt}
+\begin{tabular}{llll}
+    \hline\hline
+    Language & Version & Flags  & Accepted Extension\\
+    \hline\hline
+    C & gcc 5.4.0 & {\tt -g -O2 -static -std=gnu11 -lm} & {\tt .c} \\
+    \hline
+    C++ & g++ 5.4.0 & {\tt -g -O2 -static -std=gnu++0x -lm} & {\tt .cc, .cpp, .cxx, .c++, .C}\\
+    \hline\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{center}
+{\bf Note}: Time Limit of each problem is on the website.
+\end{center}
+
+\clearpage
+
+%(problems_content)s
+\end{document}

@@ -1,0 +1,36 @@
+\documentclass[12pt, a4paper]{problemset}
+
+\input{./npsc/deps.tex}
+
+\newcommand{\NPSCYear}{%(npsc_year)s}
+\newcommand{\ContestName}{網際網路程式設計全國大賽}
+\newcommand{\NPSCGroup}{%(npsc_group)s}
+\newcommand{\NPSCContest}{%(npsc_contest_name)s}
+\newcommand{\NPSCProblemAmount}{%(problem_amount)s}
+
+%% NPSC settings
+\setlength{\doublerulesep}{\arrayrulewidth}
+\setlength{\headheight}{15pt}
+\setlength{\parskip}{2ex}
+\setcounter{secnumdepth}{0}
+\DeclareRobustCommand{\nobreakspace}{\leavevmode\nobreak\ }
+
+\pagestyle{fancy}
+\lhead{\NPSCYear\ --- \ContestName}
+\chead{}
+\rhead{\NPSCGroup \NPSCContest}
+\lfoot{}
+\rfoot{}
+\cfoot{\thepage}
+
+
+\begin{document}
+
+\input{./npsc/npsc-cover.tex}
+
+%% tight item
+\let\olditem\item
+\renewcommand{\item}{\itemsep1pt\parskip0pt\parsep0pt\olditem}
+
+%(problems_content)s
+\end{document}
