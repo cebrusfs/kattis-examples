@@ -15,7 +15,7 @@ kattis-example/
     zh/
         - 中文的測試題
 
-    pdf_generater/
+    pdf_generator/
         - 從 contest 資料夾產生 `.tex` 用
 ```
 
