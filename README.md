@@ -1,4 +1,6 @@
-# Example problems for Kattis Judge System
+# Example problems for Kattis Judge System (for NPSC standalone version only)
+
+** Warning: This example is only for NTU NCPC and NPSC only. The maintainer have changed some format and it is compatable to origin Kattis. **
 
 These examples are used in NTU NCPC contest and NPSC.
 
