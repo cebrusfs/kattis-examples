@@ -130,7 +130,7 @@ def process(options):
 
     problems_content = ''
     for letter, path in zip(string.ascii_uppercase, problem_paths):
-        sys.stderr.write("\033[92mProblem %s\033[0m from %s\n" % (letter, path))
+        sys.stderr.write("\033[01;32mProblem %s\033[0m from %s\n" % (letter, path))
         problems_content += gen_body_from_template(path, letter, pdfenv.copy(), options.body_template_path)
 
     pdfenv["problems_content"] = problems_content
