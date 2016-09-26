@@ -1,8 +1,6 @@
-# Example problems for Kattis Judge System (for NPSC standalone version only)
+# Example problems for Kattis (NTU NPSC version only)
 
-** Warning: This example is only for NTU NCPC and NPSC only. The maintainer have changed some format and it is compatable to origin Kattis. **
-
-These examples are used in NTU NCPC contest and NPSC.
+*Warning: These examples are only for NTU NCPC and NPSC only. The maintainers have changed some format and it is __NOT__ compatable to origin Kattis.*
 
 如果需要一個簡單的開始 example，可以直接複製 [add](en/add)。
 
