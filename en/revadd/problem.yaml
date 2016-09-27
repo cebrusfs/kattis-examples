@@ -13,15 +13,20 @@ license: educational
 validation: custom
 
 # Configuration of limits (defaults as indicated)
-#limits:
-#  time_multiplier: 5
-#  time_safety_margin: 2
-#  memory: 1024                   # MB
-#  output: 8                      # MB
-#  compilation_time: 60           # seconds
-#  validation_time: 60            # seconds
-#  validation_memory: 1024        # MB
-#  validation_output: 8           # MB
+limits:
+    # this is used for pdf generate when time limit is finalized
+    # ONLY judge leader can set this
+    # comment it out if you are problem setter
+    time: 1                         # seconds
+
+#   time_multiplier: 5
+#   time_safety_margin: 2
+#   memory: 1024                    # MB
+#   output: 8                       # MB
+#   compilation_time: 60            # seconds
+#   validation_time: 60             # seconds
+#   validation_memory: 1024         # MB
+#   validation_output: 8            # MB
 
 
 ############################################################################
