@@ -18,9 +18,6 @@
 \rfoot{}
 \cfoot{\thepage}
 
-\let\olditem\item
-\renewcommand{\item}{\itemsep1pt\parskip0pt\parsep0pt\olditem}
-
 \begin{document}
 
 \title{\Huge{\textsf{\bf %(ncpc_tw_year)s學年度\\全國大專電腦軟體設計競賽\\台大校內初賽}}}
@@ -28,28 +25,39 @@
 \author{National Taiwan University}
 \maketitle
 
-\vspace*{16ex}
-
 \begin{table}[h!b!p!]
 \begin{center}
-\caption{Compilation Information}\vspace*{3pt}
 \begin{tabular}{llll}
     \hline\hline
-    Language & Version & Flags  & Accepted Extension\\
+    Language & Version & Compile Flags  & Extensions \\
     \hline\hline
-    C & gcc 5.4.0 & {\tt -g -O2 -static -std=gnu11 -lm} & {\tt .c} \\
+    C & gcc %(gcc_version)s & {\tt %(cargs)s } & {\tt .c} \\
     \hline
-    C++ & g++ 5.4.0 & {\tt -g -O2 -static -std=gnu++0x -lm} & {\tt .cc, .cpp, .cxx, .c++, .C}\\
+    C++ & g++ %(gcc_version)s & {\tt %(cppargs)s } & {\tt .cc, .cpp} \\
+    \hline
+    Java & javac %(javac_version)s & {\tt %(javaargs)s } & {\tt .java} \\
     \hline\hline
 \end{tabular}
 \end{center}
 \end{table}
 
+\begin{table}[h!b!p!]
 \begin{center}
-{\bf Note}: Time Limit of each problem is on the website.
+\begin{tabular}{clcc}
+    \hline\hline
+    Problem & Problem Name & Time Limit & Memory Limit \\
+    \hline\hline
+    %(problem_limits)s
+    \hline
+\end{tabular}
 \end{center}
+\end{table}
 
 \clearpage
+
+\let\olditem\item
+\renewcommand{\item}{\itemsep1pt\parskip0pt\parsep0pt\olditem}
+
 
 %(problems_content)s
 \end{document}

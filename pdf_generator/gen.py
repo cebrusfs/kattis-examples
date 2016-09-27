@@ -5,7 +5,10 @@ import glob
 import os
 import yaml
 import codecs
+import re
+from termcolor import colored
 
+green = lambda s: colored(s, 'green', attrs=['bold'])
 
 def find_template(templatefile):
     template_paths = [
@@ -65,6 +68,15 @@ def load_config(opt):
 
     return opt
 
+def load_problem_config(problem_dir):
+    with open(os.path.join(problem_dir, 'problem_statement', 'problem.tex')) as f:
+        name = re.findall(r'\\problemname{(.+)}', f.read())[0]
+    with open(os.path.join(problem_dir, 'problem.yaml')) as f:
+        config = yaml.safe_load(f)
+
+    config["name"] = name
+    return config
+
 
 def gen_body_from_template(problem_dir, problem_letter, pdfenv, template_path):
     if not os.path.isdir(problem_dir):
@@ -111,8 +123,12 @@ def gen_main_from_template(pdfenv, template_path, output_path):
 
     result = ''
     for line in templin:
-        out = line % pdfenv
-        print >>templout, out,
+        if '%(problem_limits)' in line:
+            for letter, name, timelim, memlim in pdfenv["problems_limits"]:
+                print >>templout, '%s & %s & %d sec & %d MB \\\\ \\hline' % (letter, name, timelim, memlim)
+        else:
+            out = line % pdfenv
+            print >>templout, out,
 
     templin.close()
     templout.close()
@@ -129,11 +145,20 @@ def process(options):
     pdfenv['problem_amount'] = len(problem_paths)
 
     problems_content = ''
+    problems_limits = []
     for letter, path in zip(string.ascii_uppercase, problem_paths):
-        sys.stderr.write("\033[01;32mProblem %s\033[0m from %s\n" % (letter, path))
+        sys.stderr.write((green("Problem %s") + " from %s\n") % (letter, path))
+        config = load_problem_config(path)
+
+        name = config["name"]
+        timelim = config["limits"]["time"]
+        memlim = config["limits"].get('memory', 1024)
+        problems_limits.append((letter, name, timelim, memlim))
+
         problems_content += gen_body_from_template(path, letter, pdfenv.copy(), options.body_template_path)
 
     pdfenv["problems_content"] = problems_content
+    pdfenv["problems_limits"] = problems_limits
 
     gen_main_from_template(pdfenv.copy(), options.main_template_path, options.output_path)
 
