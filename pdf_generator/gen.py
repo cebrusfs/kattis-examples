@@ -9,6 +9,7 @@ import re
 from termcolor import colored
 
 green = lambda s: colored(s, 'green', attrs=['bold'])
+red = lambda s: colored(s, 'red', attrs=['bold'])
 
 def find_template(templatefile):
     template_paths = [
@@ -151,7 +152,12 @@ def process(options):
         config = load_problem_config(path)
 
         name = config["name"]
-        timelim = config["limits"]["time"]
+        try:
+            timelim = config["limits"]["time"]
+        except KeyError:
+            sys.stderr.write((red("Problem %s") + " time limit is not finalized\n") % (letter))
+            timelim = 300
+
         memlim = config["limits"].get('memory', 1024)
         problems_limits.append((letter, name, timelim, memlim))
 
