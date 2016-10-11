@@ -126,7 +126,7 @@ def gen_main_from_template(pdfenv, template_path, output_path):
     for line in templin:
         if '%(problem_limits)' in line:
             for letter, name, timelim, memlim in pdfenv["problems_limits"]:
-                print >>templout, '%s & %s & %d sec & %d MB \\\\ \\hline' % (letter, name, timelim, memlim)
+                print >>templout, '%s & %s & %d s & %d MB \\\\ \\hline' % (letter, name, timelim, memlim)
         else:
             out = line % pdfenv
             print >>templout, out,
@@ -152,13 +152,14 @@ def process(options):
         config = load_problem_config(path)
 
         name = config["name"]
+        limits = config.get("limits", dict())
         try:
-            timelim = config["limits"]["time"]
+            timelim = limits["time"]
         except KeyError:
             sys.stderr.write((red("Problem %s") + " time limit is not finalized\n") % (letter))
             timelim = 300
 
-        memlim = config["limits"].get('memory', 1024)
+        memlim = limits.get('memory', 1024)
         problems_limits.append((letter, name, timelim, memlim))
 
         problems_content += gen_body_from_template(path, letter, pdfenv.copy(), options.body_template_path)
