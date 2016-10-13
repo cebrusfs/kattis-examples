@@ -26,6 +26,33 @@
 
 \begin{document}
 
+%% cover page
+\begin{center}
+    \LARGE \bf
+    \NPSCYear \ContestName\\
+    \NPSCGroup\NPSCContest
+\end{center}
+
+\begin{itemize}
+    \item 本次比賽共 \NPSCProblemAmount\ 題，含本封面共 \pageref{LastPage} 頁。
+
+    \item 全部題目的輸入都來自{\bf 標準輸入}。輸入中可能包含多組輸入，以題目敘述為主。
+
+    \item 全部題目的輸出皆輸出到螢幕({\bf 標準輸出})。\\
+          輸出和裁判的答案必須完全一致，英文字母大小寫不同或有多餘字元皆視為答題錯誤。
+
+    \item 比賽中上傳之程式碼，使用 C 語言請用 \texttt{.c} 為副檔名；使用 C++ 語言則用 \texttt{.cpp} 為副檔名。
+
+    \item 使用 \texttt{cin} 輸入速度遠慢於 \texttt{scanf} 輸入，若使用需自行承擔 Time Limit Exceeded 的風險。
+
+    \item 部分題目有浮點數輸出，會採容許部分誤差的方式進行評測。一般來說「相對或絕對誤差小於 $\epsilon$ 皆視為正確」，$\epsilon$ 值以題目敘述為主。
+
+        舉例來說，假設 $\epsilon = 10^{-6}$ 且 $a$ 是正確答案，$b$ 是你的答案，如果符合 $\frac{\abs{a - b}}{\max(a, b, 1)} \leq 10^{-6}$，就會被評測程式視為正確。
+\end{itemize}
+
+\clearpage
+
+%% example page
 \input{./npsc/npsc-cover.tex}
 
 %% tight item
