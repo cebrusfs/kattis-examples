@@ -1,0 +1,58 @@
+contest:
+    name: "Example Contest"
+    # show school name in scoreboard
+    # when NPSC=true, when NTU NCPC=false
+    show_school: False
+
+    # must be string
+    start_time: "2099-01-01 00:00:00+8"
+    length: "5:00:00"
+
+
+pdfenv:
+    # ncpc config
+    ncpc_tw_year: "1xx"
+    ncpc_date: "2099/00/01"
+    ncpc_contest_name: 台大校內初賽範例
+
+    # npsc config
+    npsc_year: "2099"
+    npsc_group: "範例組"
+    npsc_contest_name: "範例賽"
+
+    # compiler config (only for pdf)
+    gcc_version: 5.4.0
+    javac_version: 1.8.0
+    cargs: -g -O2 -std=gnu99 -static -lm
+    cppargs: -g -O2 -std=gnu++11 -static -lm
+    javaargs: -encoding UTF-8 -sourcepath . -d .
+
+admins:
+    # username: [password]
+    # if password is None, will be generated from random
+    admin001: IamAdmin001 # admin
+
+judges:
+    # username: password
+    # if password is None, will be generated from random
+    judge001: IamJudge001
+
+# Available: Cpp, C, Java, Pascal, Prolog, JavaScript, CSharp, Go, Haskell, ObjectiveC, PHP, Python2, Python3, Ruby
+#languages: [C, Cpp, Java] #default
+
+problems:
+    # list of relation path of contest_dir
+
+    # english examples
+    - ../en/hello
+    - ../en/different
+    - ../en/add
+    - ../en/revadd
+    - ../en/guess
+
+    # zh-tw exmaples
+    - ../zh-tw/hello
+    - ../zh-tw/different
+    - ../zh-tw/polarbear
+    - ../zh-tw/penguin
+    #- ../zh-tw/guess
