@@ -24,7 +24,7 @@ limits:
     # comment it out if you are problem setter
     time: 1                         # seconds
 
-#   time_multiplier: 5
+    time_multiplier: 2
 #   time_safety_margin: 2
 #   memory: 1024                    # MB
 #   output: 8                       # MB
