@@ -32,7 +32,8 @@ int main(int argc, char* argv[])
 
     int ret;
     int a, b;
-    ret = sscanf(line.data(), "%d %d%*c", &a, &b);
+    char c;
+    ret = sscanf(line.data(), "%d %d%c", &a, &b, &c);
     if (ret != 2)
     {
         team_message("format error");
